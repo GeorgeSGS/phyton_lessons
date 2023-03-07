@@ -3,6 +3,7 @@ from tkinter import *
 root = Tk()
 Label(text="Выберете цвет").pack()
 e1 = Entry(width=30)
+color_list = list()
 color_list = [['c1', "#ff0000"], ['c2', "#ff7d00"], ['c3', "#ffff00"], ["c4", "#00ff00"], ["c5", "#007dff"],
               ["c6", "#0000ff"], ["c7", "#7d00ff"]]
 color = dict(color_list)
