@@ -18,50 +18,50 @@ def create_connection(host_name, user_name, user_password, db_name):
 
 connection = create_connection("localhost", "root", "gosha90","bd1")
 
-# Create DataBase
-def create_database(connection, query):
+Create DataBase
+# def create_database(connection, query):
     cursor = connection.cursor()
     try:
         cursor.execute(query)
         print("Database created successfully")
     except Error as e:
         print(f"The error '{e}' occurred")
-
-# create_database_query = "CREATE DATABASE bd1"
-# create_database(connection, create_database_query)
-
-def execute_query(connection, query):
-    cursor = connection.cursor()
-    try:
-        cursor.execute(query)
-        connection.commit()
-        print("Query executed successfully")
-    except Error as e:
-        print(f"The error '{e}' occurred")
-
-create_users_table = """
-CREATE TABLE IF NOT EXISTS users (
-  id INT AUTO_INCREMENT, 
-  name TEXT NOT NULL, 
-  age INT, 
-  gender TEXT, 
-  nationality TEXT, 
-  PRIMARY KEY (id)
-) ENGINE = InnoDB
-"""
-
-execute_query(connection, create_users_table)
-
-create_posts_table = """
-CREATE TABLE IF NOT EXISTS posts (
-  id INT AUTO_INCREMENT, 
-  title TEXT NOT NULL, 
-  description TEXT NOT NULL, 
-  user_id INTEGER NOT NULL, 
-  FOREIGN KEY fk_user_id (user_id) REFERENCES users(id), 
-  PRIMARY KEY (id)
-) ENGINE = InnoDB
-"""
-
-execute_query(connection, create_posts_table)
+#
+create_database_query = "SHOW DATABASES"
+# # create_database(connection, create_database_query)
+#
+# def execute_query(connection, query):
+#     cursor = connection.cursor()
+#     try:
+#         cursor.execute(query)
+#         connection.commit()
+#         print("Query executed successfully")
+#     except Error as e:
+#         print(f"The error '{e}' occurred")
+#
+# create_users_table = """
+# CREATE TABLE IF NOT EXISTS users (
+#   id INT AUTO_INCREMENT,
+#   name TEXT NOT NULL,
+#   age INT,
+#   gender TEXT,
+#   nationality TEXT,
+#   PRIMARY KEY (id)
+# ) ENGINE = InnoDB
+# """
+#
+# execute_query(connection, create_users_table)
+#
+# create_posts_table = """
+# CREATE TABLE IF NOT EXISTS posts (
+#   id INT AUTO_INCREMENT,
+#   title TEXT NOT NULL,
+#   description TEXT NOT NULL,
+#   user_id INTEGER NOT NULL,
+#   FOREIGN KEY fk_user_id (user_id) REFERENCES users(id),
+#   PRIMARY KEY (id)
+# ) ENGINE = InnoDB
+# """
+#
+# execute_query(connection, create_posts_table)
 
